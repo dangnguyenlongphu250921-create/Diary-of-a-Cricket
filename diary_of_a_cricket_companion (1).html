@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dế Mèn Phiêu Lưu Ký — Companion Website | Tô Hoài</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Serif), Merriweather (Serif Body), Inter (Sans-serif UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            900: '#0e1e17',
+                            800: '#152b21',
+                            700: '#1b382b',
+                            600: '#274b3b',
+                            500: '#386450',
+                        },
+                        parchment: {
+                            100: '#fcfaf2',
+                            200: '#f5efe0',
+                            300: '#ece3ce',
+                            400: '#dfd2b5',
+                        },
+                        earth: {
+                            900: '#26160c',
+                            800: '#3a2214',
+                            700: '#4a2e1b',
+                            600: '#643f26',
+                        },
+                        gold: {
+                            400: '#e5b869',
+                            500: '#d4a359',
+                            600: '#b8853a',
+                        }
+                    },
+                    fontFamily: {
+                        serifTitle: ['"Playfair Display"', 'Georgia', 'serif'],
+                        serifBody: ['"Merriweather"', 'Georgia', 'serif'],
+                        sansUi: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base styles & literary paper texture background */
+        body {
+            background-color: #f5efe0;
+            color: #26160c;
+            font-family: 'Merriweather', Georgia, serif;
+            background-image: radial-gradient(#d4a359 0.4px, transparent 0.4px), radial-gradient(#d4a359 0.4px, #f5efe0 0.4px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            background-opacity: 0.15;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ece3ce;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #386450;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1b382b;
+        }
+
+        /* Scroll reveal class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Paper card border ornament */
+        .literary-card {
+            background-color: rgba(252, 250, 242, 0.92);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(184, 133, 58, 0.25);
+            box-shadow: 0 4px 20px -2px rgba(38, 22, 12, 0.08);
+            transition: all 0.3s ease;
+        }
+        .literary-card:hover {
+            box-shadow: 0 10px 25px -4px rgba(27, 56, 43, 0.15);
+            border-color: rgba(184, 133, 58, 0.5);
+        }
+
+        /* Quote styling */
+        blockquote {
+            position: relative;
+        }
+        blockquote::before {
+            content: "“";
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            position: absolute;
+            left: -1rem;
+            top: -2rem;
+            color: rgba(212, 163, 89, 0.25);
+            line-height: 1;
+        }
+
+        /* Ambient audio pulse effect */
+        @keyframes audioPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+        .audio-playing {
+            animation: audioPulse 1.8s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative overflow-x-hidden selection:bg-gold-500 selection:text-forest-900">
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gold-500 z-50 transition-all duration-150 w-0"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-forest-900/90 backdrop-blur-md text-parchment-200 border-b border-gold-600/30 transition-all duration-300 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <svg class="w-7 h-7 text-gold-400 group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="font-serifTitle text-lg sm:text-xl font-bold tracking-wide text-parchment-100">Dế Mèn Phiêu Lưu Ký</span>
+                    <span class="text-[10px] font-sansUi tracking-widest uppercase text-gold-400">Ấn bản đồng hành QR</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-sansUi font-medium">
+                <a href="#tac-gia" class="hover:text-gold-400 transition-colors py-1">Tác Giả</a>
+                <a href="#tac-pham" class="hover:text-gold-400 transition-colors py-1">Tác Phẩm</a>
+                <a href="#nhan-vat" class="hover:text-gold-400 transition-colors py-1">Nhân Vật</a>
+                <a href="#gia-tri" class="hover:text-gold-400 transition-colors py-1">Giá Trị</a>
+                <a href="#goc-doc" class="hover:text-gold-400 transition-colors py-1">Góc Đọc</a>
+            </nav>
+
+            <!-- Audio & Controls Header Side -->
+            <div class="flex items-center space-x-3">
+                <button id="ambient-toggle-btn" class="flex items-center space-x-2 bg-forest-800 hover:bg-forest-700 text-gold-400 px-3 py-1.5 rounded-full border border-gold-500/30 text-xs font-sansUi transition-all" title="Bật/Tắt tiếng thiên nhiên & Dế kêu">
+                    <span id="audio-icon-holder" class="w-3.5 h-3.5 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+                    </span>
+                    <span id="audio-status-text" class="hidden sm:inline">Âm thanh thiên nhiên</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-parchment-200 hover:text-gold-400 p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-forest-900 border-b border-gold-600/30 px-4 pt-2 pb-4 space-y-2 font-sansUi text-sm">
+            <a href="#tac-gia" class="block py-2 text-parchment-200 hover:text-gold-400 border-b border-forest-800">Tác Giả Tô Hoài</a>
+            <a href="#tac-pham" class="block py-2 text-parchment-200 hover:text-gold-400 border-b border-forest-800">Về Tác Phẩm</a>
+            <a href="#nhan-vat" class="block py-2 text-parchment-200 hover:text-gold-400 border-b border-forest-800">Thế Giới Nhân Vật</a>
+            <a href="#gia-tri" class="block py-2 text-parchment-200 hover:text-gold-400 border-b border-forest-800">Giá Trị & Thông Điệp</a>
+            <a href="#goc-doc" class="block py-2 text-parchment-200 hover:text-gold-400">Góc Đọc Trích Đoạn</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-forest-900 text-parchment-100 py-20 lg:py-32 overflow-hidden border-b border-gold-600/40">
+        <!-- SVG Background Leaf & Grass Motifs -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-between items-center px-4">
+            <svg class="w-96 h-96 text-gold-400 transform -translate-x-1/3" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M50 0 C20 30, 10 70, 50 100 C90 70, 80 30, 50 0 Z"/>
+            </svg>
+            <svg class="w-96 h-96 text-gold-400 transform translate-x-1/3 rotate-45" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M50 0 C20 30, 10 70, 50 100 C90 70, 80 30, 50 0 Z"/>
+            </svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <!-- Vintage Badge -->
+            <div class="inline-flex items-center space-x-2 bg-forest-800/80 border border-gold-500/40 px-4 py-1.5 rounded-full text-xs font-sansUi text-gold-400 mb-6 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                <span>Trang thông tin mở rộng chính thức</span>
+            </div>
+
+            <h2 class="text-xs sm:text-sm font-sansUi tracking-[0.3em] uppercase text-gold-400 font-semibold mb-2">Tác Phẩm Kinh Điển Văn Học Việt Nam</h2>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serifTitle font-bold tracking-tight text-parchment-100 mb-4 leading-tight">
+                DIARY OF A CRICKET
+            </h1>
+            <p class="text-2xl sm:text-4xl font-serifTitle italic text-gold-400 mb-6">
+                Dế Mèn Phiêu Lưu Ký
+            </p>
+
+            <div class="w-24 h-0.5 bg-gold-500 mx-auto mb-6"></div>
+
+            <p class="text-lg sm:text-xl font-serifBody text-parchment-200/90 max-w-2xl mx-auto mb-8 font-light italic leading-relaxed">
+                “Chuyến phiêu lưu vạn dặm của lòng dũng cảm, tình bạn nghĩa khí và ước vọng vạn vật hòa bình đại đồng.”
+            </p>
+
+            <div class="text-sm font-sansUi text-parchment-300 mb-10">
+                Tác giả: <span class="font-bold text-parchment-100 uppercase tracking-widest">TÔ HOÀI</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#tac-pham" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-500 hover:bg-gold-400 text-forest-900 font-sansUi font-bold text-sm tracking-wider uppercase transition-all shadow-lg hover:shadow-gold-500/30 flex items-center justify-center space-x-2 group">
+                    <span>Khám phá thế giới Dế Mèn</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                <a href="#goc-doc" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-forest-800 hover:bg-forest-700 text-parchment-200 font-sansUi font-medium text-sm border border-gold-500/30 transition-all flex items-center justify-center">
+                    Thưởng thức trích đoạn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-12 space-y-24">
+
+        <!-- MỤC 1: TÁC GIẢ TÔ HOÀI -->
+        <section id="tac-gia" class="reveal scroll-mt-24">
+            <div class="flex items-center space-x-4 mb-8">
+                <div class="w-12 h-0.5 bg-earth-700"></div>
+                <h2 class="text-xs font-sansUi font-bold uppercase tracking-widest text-earth-700">Mục 01 — Chân dung Tác giả</h2>
+            </div>
+
+            <div class="literary-card rounded-2xl p-6 sm:p-10 relative overflow-hidden">
+                <!-- Watermark -->
+                <div class="absolute right-0 bottom-0 opacity-5 pointer-events-none transform translate-x-10 translate-y-10">
+                    <svg class="w-80 h-80 text-earth-900" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/>
+                    </svg>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <!-- Author Frame / Graphic -->
+                    <div class="md:col-span-4 flex flex-col items-center">
+                        <div class="relative w-48 h-60 sm:w-56 sm:h-72 rounded-lg p-2 bg-parchment-300 shadow-md border border-gold-600/40">
+                            <div class="w-full h-full bg-forest-800 rounded flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
+                                <!-- Abstract Silhouette representation -->
+                                <svg class="w-24 h-24 text-gold-400 mb-2 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                    <circle cx="12" cy="8" r="4"/>
+                                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+                                </svg>
+                                <span class="font-serifTitle text-xl text-parchment-100 font-bold">TÔ HOÀI</span>
+                                <span class="text-xs font-sansUi text-gold-400 mt-1">(1920 – 2014)</span>
+                                <span class="text-[10px] font-sansUi text-parchment-300 mt-3 italic">Tên thật: Nguyễn Sen</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <span class="text-xs font-sansUi bg-forest-700 text-parchment-200 px-3 py-1 rounded-full border border-gold-500/30">
+                                Giải thưởng Hồ Chí Minh (1996)
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Author Details -->
+                    <div class="md:col-span-8 space-y-4">
+                        <h3 class="text-2xl sm:text-3xl font-serifTitle font-bold text-forest-900">
+                            Nhà văn Tô Hoài — Cây đại thụ của văn học hiện đại Việt Nam
+                        </h3>
+                        
+                        <p class="text-earth-800 leading-relaxed font-serifBody text-sm sm:text-base">
+                            Nhà văn Tô Hoài (tên thật là Nguyễn Sen) sinh ra tại quê ngoại làng Nghĩa Đô, huyện Từ Liêm, phủ Hoài Đức, tỉnh Hà Đông (nay thuộc phường Nghĩa Đô, quận Cầu Giấy, Hà Nội). Bút danh Tô Hoài được ghép từ hai chữ đầu của sông <strong>Tô</strong> Lịch và phủ <strong>Hoài</strong> Đức — vùng đất gắn bó suốt tuổi thơ ông.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2">
+                            <div class="bg-parchment-200/60 p-4 rounded-lg border border-gold-500/20">
+                                <h4 class="font-sansUi font-bold text-xs uppercase tracking-wider text-forest-700 mb-1">Dấu mốc sự nghiệp</h4>
+                                <p class="text-xs text-earth-800 leading-normal">
+                                    Bước vào con đường sáng tác từ trước năm 1945, tham gia Hội Văn hóa Cứu quốc. Ông để lại kho tàng đồ sộ với hơn 100 tác phẩm thuộc nhiều thể loại: truyện ngắn, tiểu thuyết, hồi ký, kịch bản phim.
+                                </p>
+                            </div>
+                            <div class="bg-parchment-200/60 p-4 rounded-lg border border-gold-500/20">
+                                <h4 class="font-sansUi font-bold text-xs uppercase tracking-wider text-forest-700 mb-1">Phong cách nghệ thuật</h4>
+                                <p class="text-xs text-earth-800 leading-normal">
+                                    Vốn sống phong phú, khả năng quan sát tinh tế cùng vốn từ ngữ dân gian giàu hình ảnh, hóm hỉnh và sinh động. Đặc biệt bậc thầy trong nghệ thuật miêu tả tâm lý và loài vật.
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="text-earth-800 leading-relaxed text-sm italic border-l-2 border-gold-500 pl-4 py-1">
+                            “Viết cho thiếu nhi không chỉ là đem lại niềm vui giải trí, mà là cùng các em khám phá thế giới, vun đắp tình yêu thương đối với con người và thiên nhiên.”
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MỤC 2: VỀ TÁC PHẨM -->
+        <section id="tac-pham" class="reveal scroll-mt-24">
+            <div class="flex items-center space-x-4 mb-8">
+                <div class="w-12 h-0.5 bg-earth-700"></div>
+                <h2 class="text-xs font-sansUi font-bold uppercase tracking-widest text-earth-700">Mục 02 — Hoàn cảnh & Tầm vóc Tác phẩm</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Timeline/Genesis Card -->
+                <div class="literary-card rounded-2xl p-6 lg:col-span-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-forest-800 text-gold-400 flex items-center justify-center font-bold font-serifTitle mb-4">
+                            1941
+                        </div>
+                        <h3 class="text-xl font-serifTitle font-bold text-forest-900 mb-3">Lịch sử ra đời</h3>
+                        <p class="text-sm text-earth-800 leading-relaxed font-serifBody">
+                            Ban đầu, nhà văn Tô Hoài viết truyện <em>"Con Dế Mèn"</em> xuất bản năm 1941. Được sự đón nhận nồng nhiệt từ độc giả thiếu nhi, ông tiếp tục viết thêm phần sau và gộp lại thành kiệt tác <strong>"Dế Mèn phiêu lưu ký"</strong> ra mắt trọn vẹn vào năm 1942.
+                        </p>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gold-500/20 text-xs text-earth-700 font-sansUi">
+                        <span class="font-bold text-forest-800">Tầm ảnh hưởng quốc tế:</span> Đã được dịch ra hơn <strong>40 ngôn ngữ</strong> và phát hành tại nhiều quốc gia trên thế giới (Anh, Pháp, Nga, Trung Quốc, Nhật Bản, Hàn Quốc...).
+                    </div>
+                </div>
+
+                <!-- Plot & Value Card -->
+                <div class="literary-card rounded-2xl p-6 lg:col-span-2 space-y-4">
+                    <h3 class="text-xl font-serifTitle font-bold text-forest-900">Tóm tắt nội dung & Cốt truyện</h3>
+                    <p class="text-sm sm:text-base text-earth-800 leading-relaxed font-serifBody">
+                        Tác phẩm kể về hành trình trưởng thành của <strong>Dế Mèn</strong>. Ban đầu, Mèn là một chú dế thanh niên khỏe mạnh nhưng bồng bột, kiêu ngạo, gây ra cái chết thương tâm cho người hàng xóm Dế Choắt. Bài học đắt giá đầu đời khiến Mèn ăn hối lỗi và quyết tâm tu dưỡng.
+                    </p>
+                    <p class="text-sm sm:text-base text-earth-800 leading-relaxed font-serifBody">
+                        Về sau, Mèn cùng người bạn kết nghĩa là <strong>Dế Trũi</strong> dấn thân vào những chuyến phiêu lưu mạo hiểm: ra tay cứu giúp Chị Nhà Trò yếu đuối, đại náo tổng Châu Chấu, đọ sức với Võ sĩ Bọ Ngựa, và cùng các loài vật kết ước thề nguyện: <em>“Muôn loài cùng nhau kết làm anh em, sống hòa bình không chia rẽ.”</em>
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <div class="flex items-start space-x-3 bg-parchment-200/80 p-3 rounded-lg border border-gold-500/20">
+                            <span class="text-gold-600 font-bold text-lg leading-none">✦</span>
+                            <div>
+                                <h4 class="text-xs font-sansUi font-bold text-forest-900">Nghệ thuật miêu tả đồng thoại</h4>
+                                <p class="text-xs text-earth-700">Tái hiện thế giới côn trùng vô cùng chân thực, gắn liền với tâm lý xã hội loài người.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 bg-parchment-200/80 p-3 rounded-lg border border-gold-500/20">
+                            <span class="text-gold-600 font-bold text-lg leading-none">✦</span>
+                            <div>
+                                <h4 class="text-xs font-sansUi font-bold text-forest-900">Biểu tượng văn học thiếu nhi</h4>
+                                <p class="text-xs text-earth-700">Tác phẩm kinh điển gối đầu giường của bao thế hệ tuổi thơ Việt Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MỤC 3: THẾ GIỚI NHÂN VẬT -->
+        <section id="nhan-vat" class="reveal scroll-mt-24">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                <div>
+                    <div class="flex items-center space-x-4 mb-2">
+                        <div class="w-12 h-0.5 bg-earth-700"></div>
+                        <h2 class="text-xs font-sansUi font-bold uppercase tracking-widest text-earth-700">Mục 03 — Gallery Nhân Vật</h2>
+                    </div>
+                    <h3 class="text-2xl font-serifTitle font-bold text-forest-900">Thế Giới Côn Trùng Sinh Động</h3>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2 font-sansUi text-xs" id="char-filter-group">
+                    <button class="filter-btn active bg-forest-800 text-parchment-100 px-3 py-1.5 rounded-full border border-gold-500/40" data-filter="all">Tất cả</button>
+                    <button class="filter-btn bg-parchment-200 text-forest-900 hover:bg-parchment-300 px-3 py-1.5 rounded-full border border-gold-500/20" data-filter="main">Chính tuyến</button>
+                    <button class="filter-btn bg-parchment-200 text-forest-900 hover:bg-parchment-300 px-3 py-1.5 rounded-full border border-gold-500/20" data-filter="companion">Bạn đồng hành & Hàng xóm</button>
+                    <button class="filter-btn bg-parchment-200 text-forest-900 hover:bg-parchment-300 px-3 py-1.5 rounded-full border border-gold-500/20" data-filter="warrior">Võ sĩ & Đối thủ</button>
+                </div>
+            </div>
+
+            <!-- Characters Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="character-grid">
+                
+                <!-- Dế Mèn -->
+                <div class="char-card literary-card rounded-2xl overflow-hidden cursor-pointer group transform transition-transform hover:-translate-y-1" data-category="main" onclick="openCharModal('men')">
+                    <div class="h-44 bg-forest-800 relative flex items-center justify-center p-4 border-b border-gold-600/30">
+                        <svg class="w-24 h-24 text-gold-400 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                        </svg>
+                        <span class="absolute top-3 right-3 bg-gold-500 text-forest-900 text-[10px] font-sansUi font-bold uppercase px-2 py-0.5 rounded">Nhân vật chính</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-1">Dế Mèn</h4>
+                        <p class="text-xs font-sansUi text-earth-700 mb-3 italic">Cường tráng, bồng bột & giàu dũng khí</p>
+                        <p class="text-xs text-earth-800 line-clamp-3 leading-relaxed">
+                            Thanh niên dế cường tráng, đôi càng mẫm bóng. Trải qua vấp ngã cay đắng, Mèn trở thành người lữ hành dũng cảm, trượng nghĩa.
+                        </p>
+                        <span class="inline-block mt-4 text-xs font-sansUi text-gold-600 font-semibold group-hover:underline">Xem chi tiết &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Dế Trũi -->
+                <div class="char-card literary-card rounded-2xl overflow-hidden cursor-pointer group transform transition-transform hover:-translate-y-1" data-category="companion" onclick="openCharModal('trui')">
+                    <div class="h-44 bg-earth-800 relative flex items-center justify-center p-4 border-b border-gold-600/30">
+                        <svg class="w-24 h-24 text-gold-400 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <span class="absolute top-3 right-3 bg-earth-700 text-parchment-200 text-[10px] font-sansUi font-bold uppercase px-2 py-0.5 rounded">Bạn tri kỷ</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-1">Dế Trũi</h4>
+                        <p class="text-xs font-sansUi text-earth-700 mb-3 italic">Kiên cường, trung thành & giỏi võ nghệ</p>
+                        <p class="text-xs text-earth-800 line-clamp-3 leading-relaxed">
+                            Người bạn kết nghĩa "sinh tử có nhau" của Dế Mèn. Tính tình chất phát, thẳng thắn, không ngại hiểm nguy vì bạn bè.
+                        </p>
+                        <span class="inline-block mt-4 text-xs font-sansUi text-gold-600 font-semibold group-hover:underline">Xem chi tiết &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Dế Choắt -->
+                <div class="char-card literary-card rounded-2xl overflow-hidden cursor-pointer group transform transition-transform hover:-translate-y-1" data-category="companion" onclick="openCharModal('choat')">
+                    <div class="h-44 bg-forest-900 relative flex items-center justify-center p-4 border-b border-gold-600/30">
+                        <svg class="w-24 h-24 text-parchment-300 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M12 4v16m8-8H4"/>
+                        </svg>
+                        <span class="absolute top-3 right-3 bg-parchment-300 text-forest-900 text-[10px] font-sansUi font-bold uppercase px-2 py-0.5 rounded">Hàng xóm</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-1">Dế Choắt</h4>
+                        <p class="text-xs font-sansUi text-earth-700 mb-3 italic">Yếu ớt, tội nghiệp nhưng giàu tình nghĩa</p>
+                        <p class="text-xs text-earth-800 line-clamp-3 leading-relaxed">
+                            Chú dế hàng xóm gầy còm, ốm yếu. Lời trăn trối trước khi qua đời của Choắt chính là bài học thức tỉnh tâm hồn Dế Mèn.
+                        </p>
+                        <span class="inline-block mt-4 text-xs font-sansUi text-gold-600 font-semibold group-hover:underline">Xem chi tiết &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Chị Nhà Trò -->
+                <div class="char-card literary-card rounded-2xl overflow-hidden cursor-pointer group transform transition-transform hover:-translate-y-1" data-category="companion" onclick="openCharModal('nhatro')">
+                    <div class="h-44 bg-forest-700 relative flex items-center justify-center p-4 border-b border-gold-600/30">
+                        <svg class="w-24 h-24 text-gold-400 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span class="absolute top-3 right-3 bg-gold-400 text-forest-900 text-[10px] font-sansUi font-bold uppercase px-2 py-0.5 rounded">Yếu đuối</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-1">Chị Nhà Trò</h4>
+                        <p class="text-xs font-sansUi text-earth-700 mb-3 italic">Gầy yếu, bị áp bức bởi họ Nhện</p>
+                        <p class="text-xs text-earth-800 line-clamp-3 leading-relaxed">
+                            Thân hình gầy gộc, cánh ngắn ngủn. Chị được Dế Mèn đứng ra bảo vệ, xé nợ và trừng phạt bè lũ Nhện độc ác.
+                        </p>
+                        <span class="inline-block mt-4 text-xs font-sansUi text-gold-600 font-semibold group-hover:underline">Xem chi tiết &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Võ sĩ Bọ Ngựa -->
+                <div class="char-card literary-card rounded-2xl overflow-hidden cursor-pointer group transform transition-transform hover:-translate-y-1" data-category="warrior" onclick="openCharModal('bongua')">
+                    <div class="h-44 bg-earth-900 relative flex items-center justify-center p-4 border-b border-gold-600/30">
+                        <svg class="w-24 h-24 text-gold-400 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        <span class="absolute top-3 right-3 bg-earth-700 text-parchment-200 text-[10px] font-sansUi font-bold uppercase px-2 py-0.5 rounded">Võ sĩ</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-1">Võ sĩ Bọ Ngựa</h4>
+                        <p class="text-xs font-sansUi text-earth-700 mb-3 italic">Kiêu ngạo, kiêu hãnh võ nghệ</p>
+                        <p class="text-xs text-earth-800 line-clamp-3 leading-relaxed">
+                            Tay kiếm khép tiếng của vùng cỏ may, luôn tự hào về đôi kiếm răng cưa của mình trước khi chạm trán Dế Trũi.
+                        </p>
+                        <span class="inline-block mt-4 text-xs font-sansUi text-gold-600 font-semibold group-hover:underline">Xem chi tiết &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Bọ Dừa -->
+                <div class="char-card literary-card rounded-2xl overflow-hidden cursor-pointer group transform transition-transform hover:-translate-y-1" data-category="warrior" onclick="openCharModal('bodua')">
+                    <div class="h-44 bg-forest-800 relative flex items-center justify-center p-4 border-b border-gold-600/30">
+                        <svg class="w-24 h-24 text-parchment-200 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                        <span class="absolute top-3 right-3 bg-forest-700 text-gold-400 text-[10px] font-sansUi font-bold uppercase px-2 py-0.5 rounded">Khách lữ hành</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-1">Bọ Dừa</h4>
+                        <p class="text-xs font-sansUi text-earth-700 mb-3 italic">Bác bọ dừa từng trải, yêu thiên nhiên</p>
+                        <p class="text-xs text-earth-800 line-clamp-3 leading-relaxed">
+                            Vị khách qua đường ghé xóm Xóm Đầm. Đêm nằm dưới giọt sương đêm đã gợi lên trong lòng bác tình yêu quê hương da diết.
+                        </p>
+                        <span class="inline-block mt-4 text-xs font-sansUi text-gold-600 font-semibold group-hover:underline">Xem chi tiết &rarr;</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MỤC 4: GIÁ TRỊ VÀ THÔNG ĐIỆP -->
+        <section id="gia-tri" class="reveal scroll-mt-24">
+            <div class="flex items-center space-x-4 mb-8">
+                <div class="w-12 h-0.5 bg-earth-700"></div>
+                <h2 class="text-xs font-sansUi font-bold uppercase tracking-widest text-earth-700">Mục 04 — Tư tưởng Nhân văn</h2>
+            </div>
+
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h3 class="text-2xl sm:text-3xl font-serifTitle font-bold text-forest-900 mb-3">Những Bài Học Đi Cùng Năm Tháng</h3>
+                <p class="text-sm text-earth-800 font-serifBody">
+                    Không chỉ là câu chuyện phiêu lưu ly kỳ cho thiếu nhi, tác phẩm mang chiều sâu triết lý về tình người, cách sống và lý tưởng hòa bình.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Message 1 -->
+                <div class="literary-card rounded-2xl p-6 flex space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center font-bold text-xl">
+                        01
+                    </div>
+                    <div>
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-2">Trưởng Thành Từ Sự Vấp Ngã</h4>
+                        <p class="text-xs sm:text-sm text-earth-800 leading-relaxed font-serifBody">
+                            Con người ai cũng có thể mắc sai lầm do tính bồng bột của tuổi trẻ. Điều quan trọng nhất là biết soi rọi bản thân, ăn hối lỗi và đứng dậy từ chính những vấp ngã đó để sống tử tế hơn.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Message 2 -->
+                <div class="literary-card rounded-2xl p-6 flex space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center font-bold text-xl">
+                        02
+                    </div>
+                    <div>
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-2">Tình Bạn & Nghĩa Khí Đồng Hành</h4>
+                        <p class="text-xs sm:text-sm text-earth-800 leading-relaxed font-serifBody">
+                            Tình bạn keo sơn giữa Dế Mèn và Dế Trũi vượt qua gian nan, hoạn nạn. Sẵn sàng xả thân vì nhau chính là biểu tượng cao đẹp của lòng trung thành và tình đồng chí, đồng đội.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Message 3 -->
+                <div class="literary-card rounded-2xl p-6 flex space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center font-bold text-xl">
+                        03
+                    </div>
+                    <div>
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-2">Lòng Nhân Ái & Bất Bằng Phản Kháng</h4>
+                        <p class="text-xs sm:text-sm text-earth-800 leading-relaxed font-serifBody">
+                            Hình ảnh Dế Mèn bên vực thẳm bênh vực Chị Nhà Trò yếu đuối trước cường quyền họ Nhện thể hiện tinh thần trượng nghĩa: kẻ mạnh là kẻ biết giúp đỡ người yếu chứ không phải đè nén kẻ khác.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Message 4 -->
+                <div class="literary-card rounded-2xl p-6 flex space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center font-bold text-xl">
+                        04
+                    </div>
+                    <div>
+                        <h4 class="font-serifTitle font-bold text-lg text-forest-900 mb-2">Khát Vọng Hòa Bình & Đại Đồng</h4>
+                        <p class="text-xs sm:text-sm text-earth-800 leading-relaxed font-serifBody">
+                            Ước mơ lớn nhất của Dế Mèn trong chuyến phiêu lưu là kêu gọi muôn loài xóa bỏ thù oán, "kết làm anh em", cùng xây dựng một thế giới chan hòa, tự do và bình đẳng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MỤC 5: GÓC ĐỌC TRÍCH ĐOẠN & THƯỞNG THỨC -->
+        <section id="goc-doc" class="reveal scroll-mt-24">
+            <div class="flex items-center space-x-4 mb-8">
+                <div class="w-12 h-0.5 bg-earth-700"></div>
+                <h2 class="text-xs font-sansUi font-bold uppercase tracking-widest text-earth-700">Mục 05 — Góc Đọc & Nghe Trích Đoạn</h2>
+            </div>
+
+            <div class="literary-card rounded-2xl p-6 sm:p-10">
+                <!-- Excerpt Selector Tabs -->
+                <div class="flex flex-wrap gap-3 border-b border-gold-500/30 pb-4 mb-6 font-sansUi text-xs sm:text-sm">
+                    <button class="excerpt-tab active px-4 py-2 rounded-lg bg-forest-800 text-gold-400 font-medium" onclick="switchExcerpt(0)">
+                        Trích đoạn 1: Lời trăn trối của Dế Choắt
+                    </button>
+                    <button class="excerpt-tab px-4 py-2 rounded-lg bg-parchment-200 text-earth-800 hover:bg-parchment-300 font-medium" onclick="switchExcerpt(1)">
+                        Trích đoạn 2: Cứu Chị Nhà Trò
+                    </button>
+                    <button class="excerpt-tab px-4 py-2 rounded-lg bg-parchment-200 text-earth-800 hover:bg-parchment-300 font-medium" onclick="switchExcerpt(2)">
+                        Trích đoạn 3: Lời thề kết nghĩa
+                    </button>
+                </div>
+
+                <!-- Text-to-speech / Simulated Audio Bar -->
+                <div class="bg-forest-900 text-parchment-100 p-4 rounded-xl mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 border border-gold-600/30">
+                    <div class="flex items-center space-x-3 w-full sm:w-auto">
+                        <button id="tts-play-btn" onclick="toggleSpeech()" class="w-10 h-10 rounded-full bg-gold-500 hover:bg-gold-400 text-forest-900 flex items-center justify-center transition-transform active:scale-95 shadow">
+                            <svg id="tts-icon-play" class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <svg id="tts-icon-pause" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                        <div>
+                            <div class="text-xs font-sansUi font-bold text-gold-400">Trợ lý đọc giọng nói (TTS)</div>
+                            <div id="tts-status" class="text-[11px] font-sansUi text-parchment-300">Nhấn Play để nghe đọc trích đoạn hiện tại</div>
+                        </div>
+                    </div>
+
+                    <!-- Voice Wave Visualizer Simulation -->
+                    <div class="flex items-center space-x-1 h-6" id="audio-wave">
+                        <span class="w-1 h-3 bg-gold-500/40 rounded-full"></span>
+                        <span class="w-1 h-5 bg-gold-500/40 rounded-full"></span>
+                        <span class="w-1 h-2 bg-gold-500/40 rounded-full"></span>
+                        <span class="w-1 h-6 bg-gold-500/40 rounded-full"></span>
+                        <span class="w-1 h-4 bg-gold-500/40 rounded-full"></span>
+                    </div>
+                </div>
+
+                <!-- Excerpt Display Window -->
+                <div id="excerpt-content-box" class="space-y-4 font-serifBody text-earth-900 leading-relaxed text-sm sm:text-base bg-parchment-100/80 p-6 rounded-xl border border-gold-500/20 shadow-inner">
+                    <!-- Dynamic Content inserted via JS -->
+                </div>
+
+                <div class="mt-4 text-right text-xs font-sansUi text-earth-600 italic">
+                    Nguồn xác thực: Trích <em>"Dế Mèn phiêu lưu ký"</em> — NXB Kim Đồng.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer with Creator Section & Red Seal Stamp -->
+    <footer class="bg-forest-900 text-parchment-300 border-t border-gold-600/30 pt-12 pb-10 mt-16 text-xs font-sansUi">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
+            <!-- Main Footer Links & Info -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-forest-800">
+                <div class="text-center md:text-left space-y-1">
+                    <p class="font-serifTitle text-lg font-bold text-parchment-100">DẾ MÈN PHIÊU LƯU KÝ — TÔ HOÀI</p>
+                    <p class="text-parchment-400">Trang thông tin tri ân và khám phá tác phẩm văn học kinh điển Việt Nam.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center items-center gap-6 text-parchment-300">
+                    <a href="#tac-gia" class="hover:text-gold-400 transition-colors">Tác giả</a>
+                    <a href="#tac-pham" class="hover:text-gold-400 transition-colors">Tác phẩm</a>
+                    <a href="#nhan-vat" class="hover:text-gold-400 transition-colors">Nhân vật</a>
+                    <a href="#gia-tri" class="hover:text-gold-400 transition-colors">Giá trị</a>
+                    <a href="#goc-doc" class="hover:text-gold-400 transition-colors">Góc đọc</a>
+                </div>
+            </div>
+
+            <!-- Creator / Developer Section (Người Tạo Website) -->
+            <div class="bg-forest-800/60 rounded-2xl p-6 border border-gold-500/20 backdrop-blur-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-4">
+                    <!-- Creator Details -->
+                    <div class="space-y-1">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-[10px] font-sansUi font-bold uppercase tracking-widest text-gold-400 bg-forest-900 px-2.5 py-0.5 rounded border border-gold-500/30">Người tạo website</span>
+                            <span class="text-xs text-parchment-400 font-mono">@Ramril</span>
+                        </div>
+                        <h4 class="font-serifTitle text-base sm:text-lg font-bold text-parchment-100">
+                            Đặng Nguyễn Long Phú <span class="text-sm font-normal text-gold-400 italic">(Ramril)</span>
+                        </h4>
+                        <p class="text-xs text-parchment-300 max-w-md leading-relaxed font-serifBody">
+                            Thiết kế & phát triển không gian số tôn vinh tác phẩm <em>Dế Mèn phiêu lưu ký</em> — Kết nối văn học kinh điển với công nghệ hiện đại qua mã QR.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center sm:text-right text-[11px] text-parchment-400 space-y-1">
+                    <div class="text-gold-400 font-serifTitle italic">“Ghi dấu giá trị văn học trên trang sách số”</div>
+                    <div>Đồng hành cùng độc giả Việt Nam</div>
+                    <div class="text-[10px] text-parchment-400 opacity-75">© Tác phẩm gốc thuộc bản quyền nhà văn Tô Hoài</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-40 bg-gold-500 text-forest-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-gold-400 hover:scale-110">
+        <svg class="w-5 h-5 stroke-current stroke-2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <!-- Character Details Modal -->
+    <div id="char-modal" class="fixed inset-0 z-50 bg-forest-900/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="literary-card w-full max-w-lg rounded-2xl p-6 sm:p-8 relative shadow-2xl transform scale-95 transition-transform duration-300" id="char-modal-box">
+            <button onclick="closeCharModal()" class="absolute top-4 right-4 text-earth-700 hover:text-forest-900 p-1">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div id="modal-content">
+                <!-- Modal content dynamically injected -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        /* -------------------------------------------------------------
+           1. DATA FOR EXCERPTS & CHARACTERS
+        ------------------------------------------------------------- */
+        const excerptsData = [
+            {
+                title: "Trích đoạn 1: Lời trăn trối của Dế Choắt",
+                content: `
+                    <p class="mb-3">Dế Choắt thoi thóp nằm trong ngách. Tôi hốt hoảng quỳ xuống, nâng đầu Choắt lên mà khóc:</p>
+                    <blockquote class="pl-6 italic border-l-2 border-gold-500 my-4 text-forest-900">
+                        "Choắt ơi! Tôi xin lỗi Choắt, tôi hối lắm rồi! Choắt có giận tôi không?"
+                    </blockquote>
+                    <p class="mb-3">Dế Choắt tháo hắt hơi một tiếng dài, rồi bảo tôi bằng giọng thào thào:</p>
+                    <blockquote class="pl-6 italic border-l-2 border-gold-500 my-4 text-forest-900">
+                        "Tôi sống yếu ớt từ nhỏ rồi, chết cũng không hối tiếc... Nhưng tôi khuyên anh: Ở đời mà có chí hung hăng chẫu chuộc, có óc mà không biết suy nghĩ, sớm muộn rồi cũng mang họa vào mình đấy!"
+                    </blockquote>
+                    <p>Nói xong, Choắt nhắm mắt xui tay. Đó là bài học đường đời đầu tiên cay đắng mà tôi ghi nhớ suốt đời.</p>
+                `
+            },
+            {
+                title: "Trích đoạn 2: Bất bằng cứu Chị Nhà Trò",
+                content: `
+                    <p class="mb-3">Tôi cất tiếng hỏi lớn trong hang Nhện:</p>
+                    <blockquote class="pl-6 italic border-l-2 border-gold-500 my-4 text-forest-900">
+                        "Bè lũ Nhện kia! Mấy đời cổ ỉa ỷ thế cậy đông, đi đe dọa một cô gái yếu ớt thế này? Có giỏi thì ra đây so găng với ta!"
+                    </blockquote>
+                    <p class="mb-3">Nhện gộc giương mắt tròn xoe nhìn tôi. Tôi quay sang Chị Nhà Trò, bảo:</p>
+                    <blockquote class="pl-6 italic border-l-2 border-gold-500 my-4 text-forest-900">
+                        "Em đừng sợ. Hãy trở về nhà đi. Từ nay không ai được chạm đến một sợi lông chân của em nữa!"
+                    </blockquote>
+                    <p>Tôi thúc hai càng, vung lên đánh tan các giăng tơ chằng chịt của bọn Nhện ác độc.</p>
+                `
+            },
+            {
+                title: "Trích đoạn 3: Lời thề kết nghĩa giữa Dế Mèn và Dế Trũi",
+                content: `
+                    <p class="mb-3">Chúng tôi cùng đứng trên ngọn cỏ cao nhìn ra dòng sông phẳng lặng. Dế Trũi nắm lấy tay tôi, hai đứa cùng đứng dưới ánh mặt trời rực rỡ.</p>
+                    <blockquote class="pl-6 italic border-l-2 border-gold-500 my-4 text-forest-900">
+                        "Từ nay, hai ta là anh em ruột thịt. Sinh có nhau, tử có nhau, gian nan không bỏ, hoạn nạn cùng chia!"
+                    </blockquote>
+                    <p class="mb-3">Lời thề ấy như làn gió mát lành thổi qua ngọn cỏ bãi sông, mở ra những chuyến đi vạn dặm đầy kiêu hãnh của hai người lữ hành tuổi trẻ.</p>
+                `
+            }
+        ];
+
+        const charDetails = {
+            men: {
+                title: "Dế Mèn",
+                subtitle: "Nhân vật chính — Người lữ hành giàu dũng khí",
+                desc: "Dế Mèn là chú dế thanh niên tự lập sớm, ăn uống độ lượng nên vóc dáng rất cường tráng: đôi càng mẫm bóng, những chiếc vuốt ở chân nhọn xắt. Ban đầu do kiêu ngạo, Mèn đã trêu chị Cốc dẫn đến cái chết thương tâm của Dế Choắt. Sau bài học cay đắng đó, Mèn thay đổi tâm tính, trở thành một người anh hùng nghĩa hiệp, sẵn sàng đấu tranh vì lẽ phải và khát vọng hòa bình đại đồng."
+            },
+            trui: {
+                title: "Dế Trũi",
+                subtitle: "Người bạn tri kỷ kết nghĩa",
+                desc: "Dế Trũi là chú dế mề, hình dáng tuy ngắn ngủn, lông lá lùm xùm nhưng rất giỏi võ nghệ và kiên cường. Trũi có tính cách thẳng thắn, bộc trực, cực kỳ trung thành. Trong suốt chuyến phiêu lưu, Trũi và Mèn luôn kề vai sát cánh, trải qua nhiều nguy hiểm từ tổng Châu Chấu đến những vùng đất xa lạ."
+            },
+            choat: {
+                title: "Dế Choắt",
+                subtitle: "Người hàng xóm yếu ớt",
+                desc: "Dế Choắt là người hàng xóm trạc tuổi Dế Mèn nhưng cơ thể gầy còm, ốm yếu như người gánh nặng. Choắt sống thu mình và khiêm nhường. Sự ra đi của Choắt cùng lời khuyên can dứt ruột trước lúc qua đời đã trở thành bước ngoặt tâm lý quan trọng nhất, thức tỉnh sự trưởng thành của Dế Mèn."
+            },
+            nhatro: {
+                title: "Chị Nhà Trò",
+                subtitle: "Nạn nhân áp bức yếu đuối",
+                desc: "Chị Nhà Trò có thân hình nhỏ bé, cánh mỏng như cánh bướm non, lại nghèo khổ nên thường xuyên bị bọn Nhện giăng bẫy đòi nợ cũ của cha mẹ. Sự yếu đuối và hoàn cảnh tội nghiệp của Nhà Trò đã khơi dậy lòng trắc ẩn và tinh thần hiệp sĩ trong con người Dế Mèn."
+            },
+            bongua: {
+                title: "Võ sĩ Bọ Ngựa",
+                subtitle: "Võ sĩ kiêu hãnh vùng cỏ may",
+                desc: "Võ sĩ Bọ Ngựa nổi tiếng với đôi kiếm răng cưa sắc bén và cái đầu ngẩng cao kiêu hãnh. Bọ Ngựa đại diện cho tầng lớp võ sĩ tự tin nhưng đôi khi quá coi trọng danh tiếng cá nhân trước khi trải qua cuộc đọ sức công bằng với Dế Trũi."
+            },
+            bodua: {
+                title: "Bác Bọ Dừa",
+                subtitle: "Vị khách lữ hành trầm lặng",
+                desc: "Bác Bọ Dừa là vị khách ghé xóm Đầm đêm mưa. Trải qua một đêm nằm dưới vòm lá nghe giọt sương rơi, bác Bọ Dừa xúc động nhớ về quê nhà xa xôi. Nhân vật đại diện cho tình yêu quê hương xứ sở thầm lặng sâu sắc."
+            }
+        };
+
+        /* -------------------------------------------------------------
+           2. EXCEPT DISPLAY & SPEECH SYNTHESIS (TTS)
+        ------------------------------------------------------------- */
+        let currentExcerptIndex = 0;
+        let isSpeaking = false;
+        let synth = window.speechSynthesis;
+
+        function loadExcerpt(index) {
+            currentExcerptIndex = index;
+            const container = document.getElementById('excerpt-content-box');
+            container.innerHTML = `
+                <h4 class="font-serifTitle font-bold text-xl text-forest-900 mb-3">${excerptsData[index].title}</h4>
+                ${excerptsData[index].content}
+            `;
+            // Stop speech if switching tab
+            if (isSpeaking) {
+                stopSpeech();
+            }
+        }
+
+        function switchExcerpt(index) {
+            const tabs = document.querySelectorAll('.excerpt-tab');
+            tabs.forEach((tab, i) => {
+                if (i === index) {
+                    tab.classList.remove('bg-parchment-200', 'text-earth-800');
+                    tab.classList.add('bg-forest-800', 'text-gold-400');
+                } else {
+                    tab.classList.remove('bg-forest-800', 'text-gold-400');
+                    tab.classList.add('bg-parchment-200', 'text-earth-800');
+                }
+            });
+            loadExcerpt(index);
+        }
+
+        function toggleSpeech() {
+            if (!('speechSynthesis' in window)) {
+                alert('Trình duyệt của bạn không hỗ trợ tính năng đọc giọng nói Web Speech.');
+                return;
+            }
+
+            if (isSpeaking) {
+                stopSpeech();
+            } else {
+                startSpeech();
+            }
+        }
+
+        function startSpeech() {
+            synth.cancel(); // clear queue
+            const rawText = document.getElementById('excerpt-content-box').innerText;
+            const utterance = new SpeechSynthesisUtterance(rawText);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.9;
+
+            utterance.onend = function() {
+                stopSpeech();
+            };
+
+            utterance.onerror = function() {
+                stopSpeech();
+            };
+
+            synth.speak(utterance);
+            isSpeaking = true;
+            document.getElementById('tts-icon-play').classList.add('hidden');
+            document.getElementById('tts-icon-pause').classList.remove('hidden');
+            document.getElementById('tts-status').innerText = 'Đang đọc trích đoạn...';
+            document.getElementById('audio-wave').classList.add('animate-pulse');
+        }
+
+        function stopSpeech() {
+            if (synth) synth.cancel();
+            isSpeaking = false;
+            document.getElementById('tts-icon-play').classList.remove('hidden');
+            document.getElementById('tts-icon-pause').classList.add('hidden');
+            document.getElementById('tts-status').innerText = 'Nhấn Play để nghe đọc trích đoạn hiện tại';
+            document.getElementById('audio-wave').classList.remove('animate-pulse');
+        }
+
+        /* -------------------------------------------------------------
+           3. PROCEDURAL AMBIENT AUDIO (Web Audio API Synthesizer)
+        ------------------------------------------------------------- */
+        let audioCtx = null;
+        let isAmbientPlaying = false;
+        let ambientTimer = null;
+
+        function toggleAmbientAudio() {
+            if (!isAmbientPlaying) {
+                startAmbientAudio();
+            } else {
+                stopAmbientAudio();
+            }
+        }
+
+        function startAmbientAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            isAmbientPlaying = true;
+            document.getElementById('audio-status-text').innerText = 'Âm thanh: Đang bật';
+            document.getElementById('audio-icon-holder').classList.add('audio-playing');
+            
+            // Schedule procedural cricket chirp synthesis
+            scheduleCricketChirp();
+        }
+
+        function stopAmbientAudio() {
+            isAmbientPlaying = false;
+            if (ambientTimer) clearTimeout(ambientTimer);
+            document.getElementById('audio-status-text').innerText = 'Âm thanh thiên nhiên';
+            document.getElementById('audio-icon-holder').classList.remove('audio-playing');
+        }
+
+        function scheduleCricketChirp() {
+            if (!isAmbientPlaying) return;
+
+            // Generate realistic procedural cricket chirp sound using Web Audio API oscillators
+            playChirpSound();
+
+            // Next chirp in 2.5 to 5 seconds
+            const nextTime = 2500 + Math.random() * 2500;
+            ambientTimer = setTimeout(scheduleCricketChirp, nextTime);
+        }
+
+        function playChirpSound() {
+            if (!audioCtx || audioCtx.state !== 'running') return;
+
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            // High pitch cricket frequency (~4500Hz)
+            osc.frequency.setValueAtTime(4600, now);
+
+            // Pulsing envelope simulating cricket wing rubbing
+            gain.gain.setValueAtTime(0, now);
+            
+            // 3 quick pulses
+            for (let i = 0; i < 3; i++) {
+                const t = now + i * 0.06;
+                gain.gain.setValueAtTime(0, t);
+                gain.gain.linearRampToValueAtTime(0.04, t + 0.015);
+                gain.gain.linearRampToValueAtTime(0, t + 0.04);
+            }
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start(now);
+            osc.stop(now + 0.25);
+        }
+
+        /* -------------------------------------------------------------
+           4. CHARACTER MODAL & GALLERY FILTERS
+        ------------------------------------------------------------- */
+        function openCharModal(key) {
+            const char = charDetails[key];
+            if (!char) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="inline-block bg-forest-800 text-gold-400 text-[10px] font-sansUi font-bold uppercase px-3 py-1 rounded-full mb-3">
+                    Chi tiết nhân vật
+                </div>
+                <h3 class="font-serifTitle font-bold text-2xl text-forest-900 mb-1">${char.title}</h3>
+                <p class="text-xs font-sansUi text-earth-700 italic mb-4">${char.subtitle}</p>
+                <div class="w-12 h-0.5 bg-gold-500 mb-4"></div>
+                <p class="font-serifBody text-earth-800 text-sm leading-relaxed">${char.desc}</p>
+            `;
+
+            const modal = document.getElementById('char-modal');
+            const modalBox = document.getElementById('char-modal-box');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-95');
+            modalBox.classList.add('scale-100');
+        }
+
+        function closeCharModal() {
+            const modal = document.getElementById('char-modal');
+            const modalBox = document.getElementById('char-modal-box');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Gallery Filters
+        document.querySelectorAll('#char-filter-group .filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#char-filter-group .filter-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-forest-800', 'text-parchment-100');
+                    b.classList.add('bg-parchment-200', 'text-forest-900');
+                });
+                this.classList.remove('bg-parchment-200', 'text-forest-900');
+                this.classList.add('active', 'bg-forest-800', 'text-parchment-100');
+
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('#character-grid .char-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        /* -------------------------------------------------------------
+           5. UI INTERACTION & SCROLL ANIMATIONS
+        ------------------------------------------------------------- */
+        window.addEventListener('DOMContentLoaded', () => {
+            loadExcerpt(0);
+
+            // Scroll Reveal Observer
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(el => observer.observe(el));
+
+            // Ambient audio toggle listener
+            document.getElementById('ambient-toggle-btn').addEventListener('click', toggleAmbientAudio);
+
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // Back to top button logic
+            const backToTopBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                // Reading progress bar
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+
+                // Back to top threshold
+                if (winScroll > 400) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
